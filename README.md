@@ -6,17 +6,29 @@ In this work, we propose a privacy-preserving face identification system which u
 # Citation
 
 @article{OsorioRoig-StableHashFaceIdentification-TBIOM-2021,
+
  Author = {D. Osorio-Roig and C. Rathgeb and P Drozdowski and C. Busch},
+
  File = {:https\://cased-dms.fbi.h-da.de/literature/OsorioRoig-StableHashFaceIdentification-TBIOM-2021.pdf:URL},
+
  Groups = {TReSPAsS-ETN, ATHENE, NGBS},
+
  Journal = {Trans. on Biometrics, Behavior, and Identity Science ({TBIOM})},
+
  Keywords = {Face Recognition, Workload Reduction, Indexing, Data Privacy, Homomorphic Encryption},
+
  Month = {July},
+
  Number = {3},
+
  Pages = {333--348},
+
  Title = {Stable Hash Generation for Efficient Privacy-Preserving Face Identification},
+
  Volume = {4},
+
  Year = {2021}
+
 }
 
 # Contributions
@@ -37,11 +49,15 @@ pip install scikit-learn to work with:
 pip install numpy
 
 install and build the library seal for python
+
 import seal from python to work with homomorphic encryption
 
 # Pipeline
 
 - Execute the pipeline according to the protocol used for each database (FEI, FERET, and LFW), code of example is available with the database FEI.
+
 - Depending on type of unsupervised clustering technique utilised, the code should be executed in the unprotected or secure domain.
-    -- Use FEI-open_set_affinity_256_unprotected.py or FEI-open_set_gmm_256_unprotected.py for unprotected domain
-    -- Use FEI-open_set_affinity_256_secure.py or FEI-open_set_gmm_256_secure.py for protected domain with FHE
+
+    - Use FEI-open_set_affinity_256_unprotected.py or FEI-open_set_gmm_256_unprotected.py for unprotected domain
+
+    - Use FEI-open_set_affinity_256_secure.py or FEI-open_set_gmm_256_secure.py for protected domain with FHE
