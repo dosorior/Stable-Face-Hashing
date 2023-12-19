@@ -5,6 +5,10 @@ In this work, we propose a privacy-preserving face identification system which u
 
 # Citation
 
+If you use this code in your research, please cite the following paper:
+
+```{bibtex}
+
 @article{OsorioRoig-StableHashFaceIdentification-TBIOM-2021,
 
  Author = {D. Osorio-Roig and C. Rathgeb and P Drozdowski and C. Busch},
@@ -30,6 +34,7 @@ In this work, we propose a privacy-preserving face identification system which u
  Year = {2021}
 
 }
+```
 
 # Contributions
 1- A hash generation scheme based on a Product Quantisation (PQ) which generates stable hash codes from faces. These hashes are used for indexing a face database, i.e., to construct a hash look-up table. Facial references within the database are protected through FHE. At the time of authentication, face hashes are employed to speed up the retrieval, i.e., to return a candidate short-list. In contrast to existing works in the field, the retrieval of the candidate short-list does not require a one-to-many search, but can be directly obtained via the hash look-up table, i.e., exact matching with computational complexity of O(1). This is possible since obtained hash codes are highly stable, which further allows for a protection thereof using conventional cryptographic methods. Finally, FHE-based comparisons are carried out in the protected domain for a small fraction of facial references.  Thereby, the proposed approach reduces the overall computational workload of a face-based identification system while the indexing and retrieval is done in a privacy-preserving way.
