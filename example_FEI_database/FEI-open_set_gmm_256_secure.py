@@ -33,13 +33,11 @@ ChooserPoly
 
 
 
-parser = argparse.ArgumentParser(description='Kmeans-based hash quantisation',
+parser = argparse.ArgumentParser(description='GMM-based hash quantisation',
                                  formatter_class=argparse.ArgumentDefaultsHelpFormatter)
 
-parser.add_argument('-e', '--embeddings', type=str,
-                     default='/Users/daile.osorio/Projects/Databases/FEI/Arc_Face/model-r100-arcface-ms1m-refine-v2_TOTAL')
-parser.add_argument('-p', '--params', type=str,
-                     default='/Users/daile.osorio/Projects/Databases/FEI/Open_set_FEI_gmm_secure')
+parser.add_argument('-e', '--embeddings', type=str)
+parser.add_argument('-p', '--params', type=str)
 
 parser.add_argument('-q', '--precision', type=int,
                     default='2500')
@@ -56,8 +54,7 @@ parser.add_argument('-pm', '--plain-modulus', type=int,
 parser.add_argument('-bit', '--descomp-bit-count', type=int,
                      default='30')
 
-parser.add_argument('-o', '--output', type=str,
-                     default='/Users/daile.osorio/Projects/Databases/FEI/Open_set_FEI_gmm_secure')
+parser.add_argument('-o', '--output', type=str)
 
 parser.add_argument('-n', '--name', type=str,
                      default='secure_gmm_resnet-100')
@@ -162,7 +159,7 @@ subjects = {}
 
 for p in embeddings_path:
 
-    l = p.stem.split('-')0
+    l = p.stem.split('-')
 
     if l in subjects:
 
@@ -187,31 +184,31 @@ fpath_txt_imp = os.path.join(args.output, "FEI_impostor_{}_{}.txt".format(args.n
 
 with open(fpath_txt_gen, 'w') as f, open(fpath_txt_imp, 'w') as t: 
 
-    for i in range(args.k_fold):
+     for i in range(args.k_fold):
 
         total_entities = 0
 
-        search_l = 
+        search_l = []
 
-        enrol_l = 
+        enrol_l = []
 
-        enrol_f = 
+        enrol_f = []
 
-        search_f = 
+        search_f = []
 
-        id_subjects = 
+        id_subjects = []
         
         id_subjects = list(subjects.keys())
 
         random.shuffle(id_subjects)
 
-        id_subjects_impostors = id_subjects: 10
+        id_subjects_impostors = id_subjects[: 10]
 
-        id_subjects_genuines = id_subjects10:
+        id_subjects_genuines = id_subjects[10:]
 
         for key_imp in id_subjects_impostors:
             
-            samples = subjectskey_imp
+            samples = subjects[key_imp]
 
             for e in samples:
 
@@ -221,11 +218,11 @@ with open(fpath_txt_gen, 'w') as f, open(fpath_txt_imp, 'w') as t:
         
         for key_gen in id_subjects_genuines:
 
-            samples = subjectskey_gen
+            samples = subjects[key_gen]
 
-            enrol_samples = samples:10
+            enrol_samples = samples[:10]
 
-            search_samples = samples10:
+            search_samples = samples[10:]
 
             for e in enrol_samples:
 
@@ -255,15 +252,15 @@ with open(fpath_txt_gen, 'w') as f, open(fpath_txt_imp, 'w') as t:
 
         enroll_codes = model.encode(enrol_f)
 
-        hash_pos_enroll = np.asarray(np.where(enroll_codesi, :)0 for i in range(len(enrol_l))) 
+        hash_pos_enroll = np.asarray(np.where(enroll_codes[i, :])[0] for i in range(len(enrol_l))) 
 
-        hash_codes_enroll = np.asarray(list(map(lambda e: e % args.centers, hash_pos_enrolli, :)) for i in range(len(enrol_l)))
+        hash_codes_enroll = np.asarray(list(map(lambda e: e % args.centers, hash_pos_enroll[i, :])) for i in range(len(enrol_l)))
 
         search_codes = model.encode(search_f)
 
-        hash_pos_search = np.asarray(np.where(search_codesi, :)0 for i in range(len(search_l))) 
+        hash_pos_search = np.asarray(np.where(search_codes[i, :])[0] for i in range(len(search_l))) 
 
-        hash_codes_search = np.asarray(list(map(lambda e: e % args.centers, hash_pos_searchi, :)) for i in range(len(search_l)))
+        hash_codes_search = np.asarray(list(map(lambda e: e % args.centers, hash_pos_search[i, :])) for i in range(len(search_l)))
     
 #--------------------------------------------------------#
 
@@ -287,15 +284,15 @@ with open(fpath_txt_gen, 'w') as f, open(fpath_txt_imp, 'w') as t:
 
         for real, cand, c_labels in zip(search_l, candidate_list, candidate_labels):
 
-            id_search = real.split('-')0
+            id_search = real.split('-')[0]
 
-            label_filter = list(filter(lambda e: id_search in e and len(e.split('-')0) == len(id_search), enrol_l))
+            label_filter = list(filter(lambda e: id_search in e and len(e.split('-')[0]) == len(id_search), enrol_l))
 
             if len(label_filter):
 
                 if len(cand) > 0:
 
-                    f.write(str(cand00)+ '\n')
+                    f.write(str(cand[0][0])+ '\n')
                 
                 else:
 
@@ -306,10 +303,9 @@ with open(fpath_txt_gen, 'w') as f, open(fpath_txt_imp, 'w') as t:
 
                 if len(cand) > 0:
                     
-                    t.write(str(cand00)+ '\n')
+                    t.write(str(cand[0][0])+ '\n')
                 
                 else:
 
                     t.write(str(50000) + '\n')
 
-    print('...done')

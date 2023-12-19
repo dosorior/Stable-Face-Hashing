@@ -33,41 +33,30 @@ import argparse
 
 
 
-parser = argparse.ArgumentParser(description='Kmeans-based hash quantisation',
+parser = argparse.ArgumentParser(description='AP-based hash quantisation',
                                  formatter_class=argparse.ArgumentDefaultsHelpFormatter)
 
-parser.add_argument('-e', '--embeddings', type=str,
-                     default='/Users/daile.osorio/Projects/Databases/FEI/Arc_Face/model-r100-arcface-ms1m-refine-v2_TOTAL')
+parser.add_argument('-e', '--embeddings', help='path to the face embeddings extracted', type=str)
 
-parser.add_argument('-p', '--params', type=str,
-                     default='/Users/daile.osorio/Projects/Databases/FEI/Open_set_FEI_affinity_secure')
+parser.add_argument('-p', '--params', help= 'set path to parameters corresponding to homomorphic encryption', type=str)
 
-parser.add_argument('-q', '--precision', type=int,
-                    default='2500')
+parser.add_argument('-q', '--precision', help= 'set value to parameters corresponding to homomorphic encryption', type=int, default='2500')
 
-parser.add_argument('-vm', '--value-modulus', type=int,
-                     default='4096')
+parser.add_argument('-vm', '--value-modulus', help= 'set value to parameters corresponding to homomorphic encryption, polynomial computation', type=int, default='4096')
 
-parser.add_argument('-vc', '--value-coeff-modulus', type=int,
-                     default='128')
+parser.add_argument('-vc', '--value-coeff-modulus', help= 'set value to parameters corresponding to homomorphic encryption, security level, lowest--> more efficient', type=int, default='128')
 
-parser.add_argument('-pm', '--plain-modulus', type=int,
-                     default='40961')
+parser.add_argument('-pm', '--plain-modulus', help='set value to parameters corresponding to homomorphic encryption', type=int, default='40961')
 
-parser.add_argument('-bit', '--descomp-bit-count', type=int,
-                     default='30')
+parser.add_argument('-bit', '--descomp-bit-count', help='set value to parameters corresponding to homomorphic encryption', type=int, default='30')
 
-parser.add_argument('-o', '--output', type=str,
-                     default='/Users/daile.osorio/Projects/Databases/FEI/Open_set_FEI_affinity_secure')
+parser.add_argument('-o', '--output', help='path to the output' , type=str)
 
-parser.add_argument('-n', '--name', type=str,
-                     default='secure_affinity_resnet-100')
+parser.add_argument('-n', '--name', help='name of the model to be generated in training', type=str, default='secure_affinity_resnet-100')
 
-parser.add_argument('-k', '--k-fold', type=int,
-                     default=5)
+parser.add_argument('-k', '--k-fold',  help='number of rounds to execute in k-folds', type=int, default=5)
 
-parser.add_argument('-s', '--sub-spaces', type=int,
-                     default=1)
+parser.add_argument('-s', '--sub-spaces', help='number of sub-spaces to be set on the face embeddings, i.e. 1, 2, or 4', type=int, default=1)
 
 args = parser.parse_args()
 

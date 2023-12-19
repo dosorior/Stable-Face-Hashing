@@ -7,14 +7,12 @@ from secure_systems.TripleHashSystem import TripleHashIdentificationSystem
 from pathlib import Path
 
 
-parser = argparse.ArgumentParser(description='Kmeans-based hash quantisation',
+parser = argparse.ArgumentParser(description='GMM-based hash quantisation',
                                  formatter_class=argparse.ArgumentDefaultsHelpFormatter)
 
-parser.add_argument('-e', '--embeddings', type=str,
-                     default='/Users/daile.osorio/Projects/Databases/FEI/Arc_Face/model-r100-arcface-ms1m-refine-v2_TOTAL')
+parser.add_argument('-e', '--embeddings', type=str)
 
-parser.add_argument('-o', '--output', type=str,
-                     default='/Users/daile.osorio/Projects/Databases/FEI/Open_set_FEI_gmm/4')
+parser.add_argument('-o', '--output', type=str)
 
 parser.add_argument('-n', '--name', type=str,
                      default='gmm_resnet-100')

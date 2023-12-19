@@ -7,26 +7,21 @@ from secure_systems.TripleHashSystem import TripleHashIdentificationSystem
 from pathlib import Path
 
 
-parser = argparse.ArgumentParser(description='Kmeans-based hash quantisation',
+parser = argparse.ArgumentParser(description='AP-based hash quantisation',
                                  formatter_class=argparse.ArgumentDefaultsHelpFormatter)
 
-parser.add_argument('-e', '--embeddings', type=str,
-                     default='/Users/daile.osorio/Projects/Databases/FEI/Arc_Face/model-r100-arcface-ms1m-refine-v2_TOTAL_fixed')
+parser.add_argument('-e', '--embeddings', help='path to the face embeddings extracted', type=str)
 
-parser.add_argument('-o', '--output', type=str,
-                     default='/Users/daile.osorio/Projects/Databases/FEI/collision_affinity')
+parser.add_argument('-o', '--output', help='path to the output' ,type=str)
 
-parser.add_argument('-n', '--name', type=str,
+parser.add_argument('-n', '--name', help='name of the model to be generated in training',type=str,
                      default='affinity_resnet-100')
 
-parser.add_argument('-k', '--k-fold', type=int,
-                     default=1)
+parser.add_argument('-k', '--k-fold', help='number of rounds to execute in k-folds' ,type=int, default=5)
 
-# parser.add_argument('-c', '--centers', type=int,
-#                      default=64)
+parser.add_argument('-c', '--centers', help='number of centers defined according to the clustering technique used, AP does not employ this parameter', type=int, default=64)
 
-parser.add_argument('-s', '--sub-spaces', type=int,
-                     default=4)
+parser.add_argument('-s', '--sub-spaces', help='number of sub-spaces to be set on the face embeddings, i.e. 1, 2, or 4', type=int, default=4)
 
 args = parser.parse_args()
 

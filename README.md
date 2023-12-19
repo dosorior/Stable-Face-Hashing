@@ -38,19 +38,27 @@ In this work, we propose a privacy-preserving face identification system which u
 
 3- A comprehensive performance evaluation based on standardised metrics of the ISO-IEC-19795-1-060401 carried out over challenging closed-set and open-set scenarios on three public face databases, i.e., FEI, FERET, and LFW. 
 
+### Face Hashing
+
+![Conceptual Overview of Indexing based on Face Hashing in the Encrypted Domain](images/overview_face_hashing.png)
+
 # Installation
 
-pip install scikit-learn to work with:
+1- download database FEI in https://fei.edu.br/~cet/facedatabase.html 
+
+2- pip install scikit-learn to work with:
 - sklearn.cluster import AffinityPropagation (AP)
 - sklearn.mixture import GaussianMixture (GMM)
 - sklearn.cluster import KMeans (k-means)
 - sklearn_extra.cluster import KMedoids (k-medoids)
 
-pip install numpy
+3- pip install numpy
 
-install and build the library seal for python
+4- install and build the library seal in C++ for python. Seal builds to BFV as encoding scheme
 
-import seal from python to work with homomorphic encryption
+5- import seal from python to work with homomorphic encryption
+
+6- Details to build seal are in the folder Seal/README_build.md
 
 # Pipeline
 
@@ -58,6 +66,22 @@ import seal from python to work with homomorphic encryption
 
 - Depending on type of unsupervised clustering technique utilised, the code should be executed in the unprotected or secure domain.
 
-    - Use FEI-open_set_affinity_256_unprotected.py or FEI-open_set_gmm_256_unprotected.py for unprotected domain
+    1- Use FEI-open_set_affinity_256_unprotected.py or FEI-open_set_gmm_256_unprotected.py for unprotected domain
 
-    - Use FEI-open_set_affinity_256_secure.py or FEI-open_set_gmm_256_secure.py for protected domain with FHE
+    2- Use FEI-open_set_affinity_256_secure.py or FEI-open_set_gmm_256_secure.py for protected domain with FHE
+
+    3- For other clustering techniques such as K-means or K-medoids, use the classes KMeansQuantisation --> quantisation/kmean_quantisation.py and KMedoidsQuantisation --> quantisation/kmedoids_quantisation.py
+
+# Description of parameters
+
+- '-e', '--embeddings', help='path to the face embeddings extracted'
+- '-p', '--params', help= 'set path to parameters corresponding to homomorphic encryption'
+- '-q', '--precision', help= 'set value to parameters corresponding to homomorphic encryption'
+- '-vm', '--value-modulus', help= 'set value to parameters corresponding to homomorphic encryption, polynomial computation'
+- '-vc', '--value-coeff-modulus', help= 'set value to parameters corresponding to homomorphic encryption, security level, lowest--> more efficient'
+- '-pm', '--plain-modulus', help='set value to parameters corresponding to homomorphic encryption'
+- '-bit', '--descomp-bit-count', help='set value to parameters corresponding to homomorphic encryption'
+- '-o', '--output', help='path to the output'
+- '-n', '--name', help='name of the model to be generated in training'
+- '-k', '--k-fold',  help='number of rounds to execute in k-folds'
+- '-s', '--sub-spaces', help='number of sub-spaces to be set on the face embeddings, i.e. 1, 2, or 4'.
