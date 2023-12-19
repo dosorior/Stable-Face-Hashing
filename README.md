@@ -10,29 +10,17 @@ If you use this code in your research, please cite the following paper:
 ```{bibtex}
 
 @article{OsorioRoig-StableHashFaceIdentification-TBIOM-2021,
-
  Author = {D. Osorio-Roig and C. Rathgeb and P Drozdowski and C. Busch},
-
  File = {:https\://cased-dms.fbi.h-da.de/literature/OsorioRoig-StableHashFaceIdentification-TBIOM-2021.pdf:URL},
-
  Groups = {TReSPAsS-ETN, ATHENE, NGBS},
-
  Journal = {Trans. on Biometrics, Behavior, and Identity Science ({TBIOM})},
-
  Keywords = {Face Recognition, Workload Reduction, Indexing, Data Privacy, Homomorphic Encryption},
-
  Month = {July},
-
  Number = {3},
-
  Pages = {333--348},
-
  Title = {Stable Hash Generation for Efficient Privacy-Preserving Face Identification},
-
  Volume = {4},
-
  Year = {2021}
-
 }
 ```
 
