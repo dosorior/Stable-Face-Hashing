@@ -91,13 +91,13 @@ Project Organization
 
 # Highlight
 
-- Use [main_open_set_affinity_secure](example_FEI_database/FEI-open_set_affinity_256_secure.py)
+- Use [main_open_set_affinity_secure](example_FEI_database/FEI-open_set_affinity_256_secure.py) for [AP](https://scikit-learn.org/stable/modules/generated/sklearn.cluster.AffinityPropagation.html) with [HE](https://github.com/Lab41/PySEAL)
 
-- Use [main_open_set_affinity_unprotected](example_FEI_database/FEI-open_set_affinity_256_unprotected.py)
+- Use [main_open_set_affinity_unprotected](example_FEI_database/FEI-open_set_affinity_256_unprotected.py) for [AP](https://scikit-learn.org/stable/modules/generated/sklearn.cluster.AffinityPropagation.html) without [HE](https://github.com/Lab41/PySEAL)
 
-- Use [main_open_set_gmm_secure](example_FEI_database/FEI-open_set_gmm_256_secure.py)
+- Use [main_open_set_gmm_secure](example_FEI_database/FEI-open_set_gmm_256_secure.py) for [GMM](https://scikit-learn.org/stable/modules/mixture.html) with [HE](https://github.com/Lab41/PySEAL)
 
-- Use [main_open_set_gmm_unprotected](example_FEI_database/FEI-open_set_gmm_256_unprotected.py)
+- Use [main_open_set_gmm_unprotected](example_FEI_database/FEI-open_set_gmm_256_unprotected.py) for [GMM](https://scikit-learn.org/stable/modules/mixture.html) without [HE](https://github.com/Lab41/PySEAL)
 
 ## Overview of the Clustering- and PQ-based proposed hash generation scheme
 
