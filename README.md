@@ -91,13 +91,13 @@ Project Organization
 
 # Highlight
 
-    1- Use [main_open_set_affinity_secure](example_FEI_database/FEI-open_set_affinity_256_secure.py)
+- Use [main_open_set_affinity_secure](example_FEI_database/FEI-open_set_affinity_256_secure.py)
 
-    2- Use [main_open_set_affinity_unprotected](example_FEI_database/FEI-open_set_affinity_256_unprotected.py)
+- Use [main_open_set_affinity_unprotected](example_FEI_database/FEI-open_set_affinity_256_unprotected.py)
 
-    3- Use [main_open_set_gmm_secure](example_FEI_database/FEI-open_set_gmm_256_secure.py)
+- Use [main_open_set_gmm_secure](example_FEI_database/FEI-open_set_gmm_256_secure.py)
 
-    4- Use [main_open_set_gmm_unprotected](example_FEI_database/FEI-open_set_gmm_256_unprotected.py)
+- Use [main_open_set_gmm_unprotected](example_FEI_database/FEI-open_set_gmm_256_unprotected.py)
 
 ## Overview of the Clustering- and PQ-based proposed hash generation scheme
 
@@ -128,7 +128,7 @@ Project Organization
 
 - The hit-rates improve with K for those ranges including poor quality images. As expected, the robustness of the proposed hash generation scheme improves with image quality.
 
-#### Relation between the number of enrolled subjects and average number of comparisons.
+#### Linear Regression between the number of enrolled subjects and average number of comparisons.
 
 ![Linear Regression](images/linear_regression.png)
 
